@@ -6,22 +6,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bacon.js/0.7.10/bacon.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.7.1/coffee-script.min.js"></script>
-    <script type="text/coffeescript">
-        inputAsStream = (input) ->
-            input
-                .asEventStream "keyup"
-                .map (event) ->
-                    $ event.target
-                        .val()
-                .map (v) -> parseFloat v or 0
-                .toProperty 0
-        $ ->
-            a = inputAsStream $ "input[name=a]"
-            b = inputAsStream $ "input[name=b]"
-
-            Bacon.combineWith ((a, b) -> a + b), a, b
-                .assign $('.result'), 'text'
-    </script>
+    <script type="text/coffeescript" src="script.coffee"></script>
 </head>
 <body>
 <div class="formula">
